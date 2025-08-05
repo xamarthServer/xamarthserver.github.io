@@ -14,7 +14,167 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
 </head>
 
-<body>
+<body id="body" class="dark" oncontextmenu="return true">
+    <nav class="nav w-full fixed top-0 left-0 z-50 bg-[var(--background)] transition-all duration-300">
+        <div class="navmain1 w-full flex items-center pl-4 pr-4 py-4">
+            <div class="n1 flex items-center flex-1">
+                <a class="nlurl flex items-center gap-2" href="#">
+                    <img src="media/s2n2.png" alt="logo" decoding="async" data-nimg="1" class="nlogo"
+                        style="color:transparent; width: 32px; height: 32px">
+                </a>
+                <div class="n1c hidden md:flex gap-2 relative ml-8 justify-center flex-1" style="min-height:44px">
+                    <a class="nlinks px-4 py-2 rounded-lg font-semibold text-base tracking-wide font-sans transition-colors duration-200 relative z-10 text-[var(--foreground)] hover:bg-[var(--accent)] hover:text-[var(--background)]"
+                        href="#">Home</a>
+                    <a class="nlinks px-4 py-2 rounded-lg font-semibold text-base tracking-wide font-sans transition-colors duration-200 relative z-10 text-[var(--foreground)] hover:bg-[var(--accent)] hover:text-[var(--background)]"
+                        href="#">Projects</a>
+                    <a class="nlinks px-4 py-2 rounded-lg font-semibold text-base tracking-wide font-sans transition-colors duration-200 relative z-10 text-[var(--foreground)] hover:bg-[var(--accent)] hover:text-[var(--background)]"
+                        href="#">Links</a>
+                    <a class="nlinks px-4 py-2 rounded-lg font-semibold text-base tracking-wide font-sans transition-colors duration-200 relative z-10 text-[var(--foreground)] hover:bg-[var(--accent)] hover:text-[var(--background)]"
+                        href="#">About</a>
+                    <a class="nlinks px-4 py-2 rounded-lg font-semibold text-base tracking-wide font-sans transition-colors duration-200 relative z-10 text-[var(--foreground)] hover:bg-[var(--accent)] hover:text-[var(--background)]"
+                        href="#">Contact</a>
+                </div>
+            </div>
+            <div class="n2 hidden md:flex">
+                <label for="themeToggle1" class="themeToggle st-sunMoonThemeToggleBtn" type="checkbox">
+                    <input type="checkbox" id="themeToggle1" class="themeToggleInput" onclick="toggle()">
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" stroke="none">
+                        <g class="sunrays transition-all duration-300 opacity-100 scale-100" stroke-width="2"
+                            stroke-linecap="round">
+                            <line class="sunRay sunRay1" x1="16.5" y1="10" x2="19.5" y2="10"></line>
+                            <line class="sunRay sunRay2" x1="14.5355" y1="14.5355" x2="16.7782" y2="16.7782"></line>
+                            <line class="sunRay sunRay3" x1="10" y1="16.5" x2="10" y2="19.5"></line>
+                            <line class="sunRay sunRay4" x1="5.4645" y1="14.5355" x2="3.2218" y2="16.7782"></line>
+                            <line class="sunRay sunRay5" x1="3.5" y1="10" x2="0.5" y2="10"></line>
+                            <line class="sunRay sunRay6" x1="5.4645" y1="5.4645" x2="3.2218" y2="3.2218"></line>
+                            <line class="sunRay sunRay7" x1="10" y1="3.5" x2="10" y2="0.5"></line>
+                            <line class="sunRay sunRay8" x1="14.5355" y1="5.4645" x2="16.7782" y2="3.2218"></line>
+                        </g>
+                        <circle class="sunMoon" cx="10" cy="10" r="8"></circle>
+                        <circle class="moonMask transition-all duration-300" cx="11.5" cy="6.5" r="5.5"></circle>
+                    </svg>
+                </label>
+            </div>
+            <div class="n3 flex md:hidden items-center gap-4" id="mobileMenuBtn">
+                <label for="themeToggle2" class="themeToggle st-sunMoonThemeToggleBtn" type="checkbox">
+                    <input type="checkbox" id="themeToggle2" class="themeToggleInput" onclick="toggle()">
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" stroke="none">
+                        <g class="sunrays transition-all duration-300" stroke-width="2" stroke-linecap="round">
+                            <line class="sunRay sunRay1" x1="16.5" y1="10" x2="19.5" y2="10"></line>
+                            <line class="sunRay sunRay2" x1="14.5355" y1="14.5355" x2="16.7782" y2="16.7782"></line>
+                            <line class="sunRay sunRay3" x1="10" y1="16.5" x2="10" y2="19.5"></line>
+                            <line class="sunRay sunRay4" x1="5.4645" y1="14.5355" x2="3.2218" y2="16.7782"></line>
+                            <line class="sunRay sunRay5" x1="3.5" y1="10" x2="0.5" y2="10"></line>
+                            <line class="sunRay sunRay6" x1="5.4645" y1="5.4645" x2="3.2218" y2="3.2218"></line>
+                            <line class="sunRay sunRay7" x1="10" y1="3.5" x2="10" y2="0.5"></line>
+                            <line class="sunRay sunRay8" x1="14.5355" y1="5.4645" x2="16.7782" y2="3.2218"></line>
+                        </g>
+                        <circle class="sunMoon" cx="10" cy="10" r="8"></circle>
+                        <circle class="moonMask transition-all duration-300" cx="11.5" cy="6.5" r="5.5"></circle>
+                    </svg>
+                </label>
+                <label class="bar" for="check">
+                    <input class="ham" type="checkbox" id="check" onclick="menu()">
+                    <span class="top"></span>
+                    <span class="middle"></span>
+                    <span class="bottom"></span>
+                </label>
+            </div>
+        </div>
+        <div id="mobMenu"
+            class="navmain2 md:hidden fixed inset-0 bg-[var(--background)] overflow-hidden flex flex-col items-center justify-center bg-opacity-95"
+            style="height: 0px; opacity: 0; top:64px;">
+            <div class="flex flex-col gap-6 items-center">
+                <a class="text-3xl font-extrabold tracking-wide font-sans transition-colors duration-200 text-[var(--foreground)] hover:text-[var(--accent)]"
+                    href="#">Home</a>
+                <a class="text-3xl font-extrabold tracking-wide font-sans transition-colors duration-200 text-[var(--foreground)] hover:text-[var(--accent)]"
+                    href="#">Projects</a>
+                <a class="text-3xl font-extrabold tracking-wide font-sans transition-colors duration-200 text-[var(--foreground)] hover:text-[var(--accent)]"
+                    href="#">Links</a>
+                <a class="text-3xl font-extrabold tracking-wide font-sans transition-colors duration-200 text-[var(--foreground)] hover:text-[var(--accent)]"
+                    href="#">About</a>
+                <a class="text-3xl font-extrabold tracking-wide font-sans transition-colors duration-200 text-[var(--foreground)] hover:text-[var(--accent)]"
+                    href="#">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <main
+            class="pmain min-h-screen flex flex-col justify-center items-center bg-[var(--background)] text-[var(--foreground)] px-4 transition-all duration-300">
+            <div class="pmaini w-full max-w-3xl flex flex-col items-center text-center gap-4 pt-32 pb-16">
+                <h1 class="intro text-5xl sm:text-6xl md:text-7xl font-extrabold mb-2">Hi, I'm
+                    <span class="dynm text-[var(--primary)]">
+                        <span id="text1">xamarth</span><span id="text2">? </span> <span id="flexItem">. _.</span>
+                        <span class="emojiBox">
+                            <img class="emoji" src="media/iosSmilingFaceWithSunglasses.webp" alt="😎">
+                        </span>
+                    </span>
+                </h1>
+                <p class="para text-base sm:text-lg text-gray-400 font-medium mb-5 font-sans">
+                    Open-Source Developer & Freelancer.
+                </p>
+                <a href="#"
+                    class="vproj flex items-center justify-center gap-2 bg-[var(--primary)] text-[var(--background)] font-semibold rounded-full px-8 py-2 text-lg shadow hover:bg-[var(--accent)] transition-colors mb-10">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                        stroke-linejoin="round" class="text-xl" height="1em" width="1em"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2">
+                        </path>
+                    </svg>
+                    View Projects
+                </a>
+                <div class="linkons flex gap-4 mt-2">
+                    <a class="lkn bg-[var(--secondary)] hover:bg-[var(--primary)] hover:text-[var(--background)] text-[var(--foreground)] rounded-full p-3 transition-colors shadow text-2xl"
+                        href="#" target="_blank" rel="noopener noreferrer">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512"
+                            height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="lkn bg-[var(--secondary)] hover:bg-[var(--primary)] hover:text-[var(--background)] text-[var(--foreground)] rounded-full p-3 transition-colors shadow text-2xl"
+                        href="#" target="_blank" rel="noopener noreferrer">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
+                            height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="lkn bg-[var(--secondary)] hover:bg-[var(--primary)] hover:text-[var(--background)] text-[var(--foreground)] rounded-full p-3 transition-colors shadow text-2xl"
+                        href="#" target="_blank" rel="noopener noreferrer">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512"
+                            height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="lkn bg-[var(--secondary)] hover:bg-[var(--primary)] hover:text-[var(--background)] text-[var(--foreground)] rounded-full p-3 transition-colors shadow text-2xl"
+                        href="#" target="_blank" rel="noopener noreferrer">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512"
+                            height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="lkn bg-[var(--secondary)] hover:bg-[var(--primary)] hover:text-[var(--background)] text-[var(--foreground)] rounded-full p-3 transition-colors shadow text-2xl"
+                        href="#" target="_blank" rel="noopener noreferrer">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512"
+                            height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="src/app.js"></script>
 </body>
 
 </html>
