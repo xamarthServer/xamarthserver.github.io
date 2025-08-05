@@ -14,15 +14,14 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
 </head>
 
-<body id="body" class="dark" oncontextmenu="return true">
-    <nav class="nav w-full fixed top-0 left-0 z-50 bg-[var(--background)] transition-all duration-300">
+<body id="body" class="dark" oncontextmenu="return false">
+    <nav id="navBar" class="nav w-full fixed top-0 left-0 z-50 bg-[var(--background)] transition-all duration-300">
         <div class="navmain1 w-full flex items-center pl-4 pr-4 py-4">
             <div class="n1 flex items-center flex-1">
-                <a class="nlurl flex items-center gap-2" href="#">
-                    <img src="media/s2n2.png" alt="logo" decoding="async" data-nimg="1" class="nlogo"
-                        style="color:transparent; width: 32px; height: 32px">
+                <a data-tilt class="nlurl flex items-center gap-2" href="#">
+                    <img src="media/s2n2.png" alt="logo" decoding="async" data-nimg="1" class="nlogo">
                 </a>
-                <div class="n1c hidden md:flex gap-2 relative ml-8 justify-center flex-1" style="min-height:44px">
+                <div class="n1c hidden md:flex gap-2 relative ml-8 justify-center flex-1">
                     <a class="nlinks px-4 py-2 rounded-lg font-semibold text-base tracking-wide font-sans transition-colors duration-200 relative z-10 text-[var(--foreground)] hover:bg-[var(--accent)] hover:text-[var(--background)]"
                         href="#">Home</a>
                     <a class="nlinks px-4 py-2 rounded-lg font-semibold text-base tracking-wide font-sans transition-colors duration-200 relative z-10 text-[var(--foreground)] hover:bg-[var(--accent)] hover:text-[var(--background)]"
@@ -83,7 +82,7 @@
         </div>
         <div id="mobMenu"
             class="navmain2 md:hidden fixed inset-0 bg-[var(--background)] overflow-hidden flex flex-col items-center justify-center bg-opacity-95"
-            style="height: 0px; opacity: 0; top:64px;">
+            style="opacity:0; height: 0px; top: 64px; transition: opacity 0.4s ease, height 0.4s ease, top 0.4s ease;">
             <div class="flex flex-col gap-6 items-center">
                 <a class="text-3xl font-extrabold tracking-wide font-sans transition-colors duration-200 text-[var(--foreground)] hover:text-[var(--accent)]"
                     href="#">Home</a>
@@ -174,7 +173,27 @@
             </div>
         </main>
     </div>
+    <script>
+        document.onkeydown = function (e) {
+            if (event.keyCode == 123) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+        }
+    </script>
     <script src="src/app.js"></script>
+    <script src="src/vanilla-tilt.js"></script>
 </body>
 
 </html>

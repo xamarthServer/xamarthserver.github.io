@@ -27,6 +27,13 @@
     /* --font-mono: "Carter One"; */
 }
 
+:root {
+    -webkit-tap-highlight-color: #0000;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .light {
     --background: #e6ecef;
     --foreground: #0e1011;
@@ -62,6 +69,22 @@
     background: var(--secondary-dark);
 }
 
+.nlogo {
+    color: transparent;
+    width: 32px;
+    height: 32px;
+    transition: all 0.4s ease;
+}
+
+.nlogo:hover {
+    scale: 2;
+    transition: all 0.4s ease;
+}
+
+.n1c {
+    min-height: 44px;
+}
+
 .n2 {
     height: 40px;
     width: 40px;
@@ -70,6 +93,15 @@
 .n3 {
     height: 40px;
     width: 84px;
+}
+
+.navmain2 {
+    height: 0px;
+    opacity: 0;
+    top: 64px;
+    transition: opacity 0.4s ease;
+    transition: height 0.4s ease;
+    transition: top 0.4s ease;
 }
 
 /* xamarth */
